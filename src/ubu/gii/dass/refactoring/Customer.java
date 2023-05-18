@@ -45,7 +45,7 @@ public class Customer {
 			// determine amounts for each line
 			thisAmount = aRental.getCharge();			
 			// add frequent renter points
-			frequentRenterPoints = aRental._movie.getFrecuentPoints(aRental, frequentRenterPoints);
+			frequentRenterPoints = aRental.getFrecuentPoints(frequentRenterPoints);
 			// show figures for this rental
 			if (html) {
 				result += "<H2>" + aRental.getMovie().getTitle() + " "
