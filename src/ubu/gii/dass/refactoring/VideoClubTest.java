@@ -36,6 +36,9 @@ public class VideoClubTest {
 
 	@Test
 	public void testAlquiler() {
+		
+		m12.setPriceCode(3);
+		assertTrue("No modifica el precio", m12.getPriceCode()==2);
 
 		Rental r1 = new Rental(m11, 5);
 		Rental r2 = new Rental(m0, 1);
@@ -55,5 +58,6 @@ public class VideoClubTest {
 		assertTrue("Calcula mal el alquiler", salidaEsperada.equals(salida));
 
 	}
+	
 
 }
