@@ -37,7 +37,7 @@ public class VideoClubTest {
 	@Test
 	public void testAlquiler() {
 		
-		m12.setPriceCode(3);
+		m12.setPriceCode(2);
 		assertTrue("No modifica el precio", m12.getPriceCode()==2);
 
 		Rental r1 = new Rental(m11, 5);
@@ -48,7 +48,7 @@ public class VideoClubTest {
 		c1.addRental(r2);
 		c1.addRental(r3);
 
-		String salida = c1.statement();
+		String salida = c1.statement(false);
 
 		String salidaEsperada = new String("Rental Record for Manuel\n"
 				+ "\tSky Captain\t15.0\n" + "\tAccion Mutante\t2.0\n"
