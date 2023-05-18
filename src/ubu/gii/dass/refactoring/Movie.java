@@ -32,4 +32,13 @@ public class Movie extends MovieType {
 	public String getTitle() {
 		return _title;
 	}
+
+	int getFrecuentPoints(Rental rental, int frequentRenterPoints) {
+		frequentRenterPoints++;
+		// add bonus for a two day new release rental
+		if ((rental.getMovie().getPriceCode() == MovieType.NEW_RELEASE)
+				&& rental.getDaysRented() > 1)
+			frequentRenterPoints++;
+		return frequentRenterPoints;
+	}
 }
