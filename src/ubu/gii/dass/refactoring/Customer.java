@@ -41,11 +41,7 @@ public class Customer {
 			// determine amounts for each line
 			thisAmount = aRental.getCharge();			
 			// add frequent renter points
-			frequentRenterPoints++;
-			// add bonus for a two day new release rental
-			if ((aRental.getMovie().getPriceCode() == Movie.NEW_RELEASE)
-					&& aRental.getDaysRented() > 1)
-				frequentRenterPoints++;
+			frequentRenterPoints = getFrecuentPoints(frequentRenterPoints, aRental);
 			// show figures for this rental
 			result += "\t" + aRental.getMovie().getTitle() + "\t"
 					+ String.valueOf(thisAmount) + "\n";
@@ -56,5 +52,14 @@ public class Customer {
 		result += "You earned " + String.valueOf(frequentRenterPoints)
 				+ " frequent renter points";
 		return result;
+	}
+
+	private int getFrecuentPoints(int frequentRenterPoints, Rental aRental) {
+		frequentRenterPoints++;
+		// add bonus for a two day new release rental
+		if ((aRental.getMovie().getPriceCode() == Movie.NEW_RELEASE)
+				&& aRental.getDaysRented() > 1)
+			frequentRenterPoints++;
+		return frequentRenterPoints;
 	}
 }
