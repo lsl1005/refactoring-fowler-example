@@ -15,10 +15,12 @@ import java.util.*;
 public class Customer {
 	private String _name;
 	private List<Rental> _rentals;
+	private int frequentRenterPoints;
 
 	public Customer(String name) {
 		_name = name;
 		_rentals = new ArrayList<Rental>();
+		frequentRenterPoints = 0;
 
 	};
 
@@ -32,7 +34,6 @@ public class Customer {
 
 	public String statement() {
 		double totalAmount = 0;
-		int frequentRenterPoints = 0;
 		Iterator<Rental> rentals = _rentals.iterator();
 		String result = "Rental Record for " + getName() + "\n";
 		while (rentals.hasNext()) {
